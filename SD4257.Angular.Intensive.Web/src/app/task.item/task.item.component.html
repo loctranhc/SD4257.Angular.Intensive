@@ -1,0 +1,35 @@
+<div class="flex justify-center items-center mt-24">
+  <span class="text-gray-400 text-2xl">No task to display</span>
+</div>
+<ng-container *ngFor="let task of tasks">
+  <div class="border w-full p-4 rounded shadow mt-4 first:mt-0">
+    <div class="flex justify-between items-center py-2">
+      <div class="flex justify-start items-center">
+        <div class="rounded border px-2 text-sm bg-green-500">
+          <span class="text-white">{{task.status}}</span>
+        </div>
+        <div class="rounded border px-2 text-sm bg-red-500">
+          <span class="text-white">{{ task.priority }}</span>
+        </div>
+        <div class="pl-3">
+            <span class="font-bold">
+              {{task.taskName}}
+            </span>
+        </div>
+      </div>
+      <div class="ml-24">
+        <span class="font-bold">Expired:&ensp;</span>
+        <span>{{ task.expiredDate | date: 'dd/MM/yyyy' }}</span>
+      </div>
+    </div>
+    <hr/>
+    <div class="p-2">
+      <p>{{task.description}}</p>
+    </div>
+    <hr/>
+    <div class="text-right pt-3">
+      <button class="text-blue-500 pr-6" (click)="onClickEdit(task)">Edit</button>
+      <button class="text-red-500" (click)="onClickRemove(task)">Remove</button>
+    </div>
+  </div>
+</ng-container>

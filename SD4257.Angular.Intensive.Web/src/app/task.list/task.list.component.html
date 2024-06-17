@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="flex justify-center h-fit items-start p-12">
+  <div class="w-10/12 pb-24 px-24">
+    <div class="flex justify-between items-center pb-2 pt-6">
+      <div class="flex items-center">
+        <div>
+          <span class="font-bold">Status&ensp;</span>
+          <select [(ngModel)]="status" (ngModelChange)="statusChange($event)" class="border rounded shadow">
+            <option>New</option>
+            <option>Process</option>
+            <option>Complete</option>
+          </select>
+        </div>
+        <div class="ml-6">
+          <span class="font-bold">Priority&ensp;</span>
+          <select [(ngModel)]="priority" (ngModelChange)="priorityChange($event)" class="border rounded shadow">
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <div>
+          <button (click)="onClickNewTask()" class="border border-teal-600 bg-transparent text-teal-600 rounded px-4 text-sm">+ New Task</button>
+        </div>
+      </div>
+    </div>
+    <div class="grid">
+      <app-task-item></app-task-item>
+    </div>
+  </div>
+</div>

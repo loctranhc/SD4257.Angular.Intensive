@@ -1,0 +1,24 @@
+services:
+  sql-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql-db-dev
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "N65xBSGTSeekJ1pM"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+    restart: always
+  api:
+    build:
+      context: .
+      dockerfile: SD4257.Angular.Intensive.API/Dockerfile
+    container_name: api
+    depends_on:
+      - sql-db
+    environment:
+      ConnectionStrings__Default: "Server=sql-db;Database=SD4257.Angular.Intensive;User Id=sa;Password=N65xBSGTSeekJ1pM;TrustServerCertificate=True;MultipleActiveResultSets=True"
+      ASPNETCORE_HTTP_PORTS: 80
+    ports:
+      - "3000:80"
+    restart: always

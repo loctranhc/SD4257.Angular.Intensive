@@ -1,0 +1,29 @@
+<div>
+  <nav class="p-4 bg-teal-600 w-screen flex justify-between items-center">
+    <a [routerLink]="['/']">
+      <div class="flex justify-center items-center">
+        <fa-icon class="text-2xl text-white" [icon]="faAppleWhole"></fa-icon>
+      </div>
+    </a>
+    <div>
+      <a [routerLink]="['/']" class="text-white p-4">Home</a>
+      <a [routerLink]="['/tasks']" class="text-white p-4">Tasks</a>
+      <a [routerLink]="['/tasks']" class="text-white p-4">Pricing</a>
+      <a [routerLink]="['/tasks']" class="text-white p-4">Support</a>
+      <a [routerLink]="['/tasks']" class="text-white p-4">Document</a>
+      <a [routerLink]="['/tasks']" class="text-white p-4">About</a>
+    </div>
+    <div>
+      <div [hidden]="isAuthenticated()">
+        <button (click)="onClickSignUp()" class="border rounded text-white px-6">Sign Up</button>
+        <button (click)="onClickLogin()" class="text-white px-4">
+          Login
+        </button>
+      </div>
+      <div [hidden]="!isAuthenticated()">
+        <span class="text-white">{{userInfo?.userName}}</span>
+        <button (click)="removeUser()" class="ml-3 text-white border-white border shadow rounded px-4">Log out</button>
+      </div>
+    </div>
+  </nav>
+</div>
