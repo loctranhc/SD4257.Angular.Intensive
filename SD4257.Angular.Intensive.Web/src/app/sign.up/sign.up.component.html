@@ -8,19 +8,19 @@
       </span>
       </div>
       <div class="pt-8 pb-4">
-        <input class="text-sm w-full border-b border-teal-600 outline-0 bg-transparent" placeholder="Full Name" type="text"
+        <input [(ngModel)]="fullName" (ngModelChange)="onFullNameChange($event)" class="text-sm w-full border-b border-teal-600 outline-0 bg-transparent" placeholder="Full Name" type="text"
                name="fullName"/>
       </div>
       <div class="py-4">
-        <input class="text-sm w-full border-b border-teal-600 outline-0 bg-transparent" placeholder="UserName" type="text"
+        <input [(ngModel)]="userName" (ngModelChange)="onUserNameChange($event)" class="text-sm w-full border-b border-teal-600 outline-0 bg-transparent" placeholder="UserName" type="text"
                name="userName"/>
       </div>
       <div class="py-4">
-        <input class="text-sm w-full border-b border-teal-600 outline-0 bg-transparent" placeholder="Password" type="password"
+        <input [(ngModel)]="password" (ngModelChange)="onPasswordChange($event)" class="text-sm w-full border-b border-teal-600 outline-0 bg-transparent" placeholder="Password" type="password"
                name="password"/>
       </div>
       <div class="text-center mt-5">
-        <button class="test-sm text-teal-600 border border-teal-600 rounded p-1 w-5/12 ">Sign Up</button>
+        <button (click)="onClickSubmit()" class="test-sm text-teal-600 border border-teal-600 rounded p-1 w-5/12 ">Sign Up</button>
       </div>
       <div class="text-xs text-center py-3">
         <span>Already have an account?&ensp;</span>
